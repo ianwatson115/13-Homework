@@ -29,12 +29,11 @@ const orm = {
         console.table(result);
       });
     },
-    // An example of objColVals would be {name: panther, sleepy: true}
-    update: function(table, objColVals, condition, cb) {
-      const queryString = "UPDATE " + table;
+    updateOne: function(table, cols, condition) {
+      var queryString = "UPDATE " + table;
   
       queryString += " SET ";
-      queryString += objToSql(objColVals);
+      queryString += cols;
       queryString += " WHERE ";
       queryString += condition;
   
@@ -44,13 +43,13 @@ const orm = {
           throw err;
         }
   
-        cb(result);
+        console.table(result);
       });
     }
   };
-  console.table(orm.all("burgers"));
-//console.log(orm.insertOne("burgers", "burger_name, devoured", "\"shake shack\"", "false"));
+    // console.table(orm.updateOne("burgers", "burger_name = \"Five Guys\"", "id = 4",));
+//   console.table(orm.all("burgers"));
+// console.table(orm.insertOne("burgers", "burger_name, devoured", "\"shake shack\"", "true"));
   
-  // Export the orm object for the model (cat.js).
 module.exports = orm;
   
