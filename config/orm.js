@@ -48,7 +48,7 @@ const orm = {
     }
   };
     // console.table(orm.updateOne("burgers", "burger_name = \"Five Guys\"", "id = 4",));
-//   console.table(orm.all("burgers"));
+// console.table(orm.all("burgers"));
 // console.table(orm.insertOne("burgers", "burger_name, devoured", "\"m20\"", "true"));
   
 module.exports = orm;
